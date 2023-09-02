@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
+import cards from '../data/manifest.yaml';
+import yaml from 'js-yaml';
+import fs from 'fs';
+
+const cards = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
+---
+
+<Layout title="order.cryptocornerstore.eth">
+	<main>
+		<h1 style="display: none;">order.cryptocornerstore.eth</h1>
+		<h2 class="header">Your neighborhood corner store, <span class="hide-on-mobile"><br /></span>powered by 
+			<object type="image/svg+xml" data="/images/xmtp-logomark.svg" class="xmtp-logo">
+			<!-- Fallback content -->
+			<span class="xmtp-title">XMTP</span>
+	</object></h2>
+		<p class="instructions">
+			Ordering is easy! Just send a message to <code>order.cryptocornerstore.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
+		</p>
+		<ul role="list" class="link-card-grid">
+			{cards.map(card => (
+				<Card
+					href={`${card.href}`}
+					title={`Message with ${card.name}`}
+					icon={`images/${card.icon}`}
+					iconAlt={card.name}
+				/>
+			))}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+
+	@media (max-width: 767px) {
+			.hide-on-mobile {
+				display: none;
+			}
+		}
+
+	main {
+		margin: 0 auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: black;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	h2.header {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1em;
+		text-align: center;
+		margin-bottom: 1em;
+		margin-top: 80px;
+		@media (min-width: 1024px) {
+			margin-top: 120px;
+		}
+	}
+	.xmtp-logo {
+		height:3rem;
+		vertical-align: -0.17em;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		text-align:center;
+	}
+
+	.instructions code {
+		font-size: 0.9em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 10%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: 372px;
+		margin:0 auto;
+		gap: 1rem;
+		padding: 0;
+		justify-content: center;
+	}
+</style>
