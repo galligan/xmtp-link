@@ -10,6 +10,7 @@ const cards = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
 ---
 
 <Layout title="cryptocornerstore.eth">
+	<!-- <div class="bg-nyc"></div> -->
 	<main>
 		<h1 style="display: none;">cryptocornerstore.eth</h1>
 		<h2 class="header">Your neighborhood corner store, <span class="hide-on-mobile"><br /></span>powered by 
@@ -17,7 +18,11 @@ const cards = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
 			<!-- Fallback content -->
 			<span class="xmtp-title">XMTP</span>
 			</object>
-			and ENS
+			and
+			<object type="image/svg+xml" data="/images/ens-logo.svg" class="ens-logo">
+			<!-- Fallback content -->
+			<span class="ens-title">ENS</span>
+			</object>
 		</h2>
 		<p class="instructions">
 			Ordering is easy! Just send a message to <code>cryptocornerstore.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
@@ -42,6 +47,20 @@ const cards = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
 				display: none;
 			}
 		}
+	
+
+	.bg-nyc {
+		background-image: url('/images/bg-ny.png');
+		background-position: bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		min-height: 400px; /* Set the minimum height */
+		z-index: -1;
+	}
 
 	main {
 		margin: 0 auto;
@@ -80,6 +99,11 @@ const cards = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
 		}
 	}
 	.xmtp-logo {
+		height:3rem;
+		vertical-align: -0.17em;
+	}
+
+	.ens-logo {
 		height:3rem;
 		vertical-align: -0.17em;
 	}
