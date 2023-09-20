@@ -19,29 +19,20 @@ function getAddress(identifier) {
 
 <Layout title="Message cryptocornerstore.eth on XMTP">
 	<head>
-		<meta name="description" content="Send a message to cryptocornerstore.eth on XMTP via Coinbase Wallet, Converse, and more.">
+		<meta name="description" content="Send a message to absolutelabs.linea-build.eth on XMTP via Coinbase Wallet, Converse, and more.">
 	</head>
 	<!-- <div class="bg-nyc"></div> -->
 	<main>
-		<h1 style="display: none;">cryptocornerstore.eth</h1>
-		<h2 class="header">Your neighborhood corner store, <span class="hide-on-mobile"><br /></span>powered by 
-			<object type="image/svg+xml" data="/images/xmtp-logomark.svg" class="xmtp-logo">
-			<!-- Fallback content -->
-			<span class="xmtp-title">XMTP</span>
-			</object>
-			and
-			<object type="image/svg+xml" data="/images/ens-logo.svg" class="ens-logo">
-			<!-- Fallback content -->
-			<span class="ens-title">ENS</span>
-			</object>
+		<h1 style="display: none;">absolutelabs.linea-build.eth</h1>
+		<h2 class="header">Start building on Linea, get<span class="hide-on-mobile"><br /></span> testnet ETH directly to your wallet
 		</h2>
 		<p class="instructions">
-			Ordering is easy! Just send a message to <code>cryptocornerstore.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
+			Just send a message to <code>absolutelabs.linea-build.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, and hit send!<br />
 		</p>
 		<ul role="list" class="link-card-grid">
 			{cards.map(card => (
 				<Card
-					href={`${card.href}${getAddress(`cryptocornerstore.eth`)}`}
+					href={`${card.href}${getAddress(`absolutelabs.linea-build.eth`)}`}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}
