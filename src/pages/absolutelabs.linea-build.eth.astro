@@ -5,11 +5,17 @@ import { Image } from 'astro:assets';
 import cards from '../data/manifest.yaml';
 import yaml from 'js-yaml';
 import fs from 'fs';
+import path from 'path';
 
 const cards = yaml.load(fs.readFileSync('./src/data/manifest.linea.yaml', 'utf8'));
 const accounts = yaml.load(fs.readFileSync('./src/data/accounts.yaml', 'utf8'));
 
-function getAddress(identifier) {
+// Get the filename from the page itself
+const filename = path.basename(import.meta.url);
+// Pull out the name before .astro
+const identifier = filename.split('.').slice(0, -1).join('.');
+
+function getAddress() {
   console.log('Getting address for identifier:', identifier);
   const account = accounts.find(account => account.identifier === identifier);
   console.log('Found account:', account);
@@ -32,7 +38,7 @@ function getAddress(identifier) {
 		<ul role="list" class="link-card-grid">
 			{cards.map(card => (
 				<Card
-					href={`${card.href}${getAddress(`absolutelabs.linea-build.eth`)}`}
+					href={`${card.href}${card.target === 'address' ? getAddress(identifier) : identifier}`}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}
