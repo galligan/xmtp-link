@@ -30,7 +30,7 @@ function getAddress() {
 	<!-- <div class="bg-nyc"></div> -->
 	<main>
 		<h1 style="display: none;">absolutelabs.linea-build.eth</h1>
-		<h2 class="header">Start building on Linea, get<span class="hide-on-mobile"><br /></span> testnet ETH directly to your wallet
+		<h2 class="header">Start building on Linea,<span class="hide-on-mobile"><br /></span>  message to get testnet ETH<span class="hide-on-mobile"><br /></span>  directly to your wallet
 		</h2>
 		<p class="instructions">
 			Just send a message to <code>absolutelabs.linea-build.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, and hit send!<br />
@@ -45,6 +45,9 @@ function getAddress() {
 				/>
 			))}
 		</ul>
+		<p class="instructions">
+			Start building on Linea at <a href="https://docs.linea.build" target="_blank">docs.linea.build</a>, <span class="hide-on-mobile"><br /></span>and find us on Twitter, <a href="https://twitter.com/lineabuild" target="_blank">@lineabuild</a>.
+		</p>
 	</main>
 </Layout>
 
@@ -116,6 +119,10 @@ function getAddress() {
 		vertical-align: -0.17em;
 	}
 
+	ul.link-card-grid {
+		margin-bottom:40px;
+	}
+
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -147,4 +154,20 @@ function getAddress() {
 		padding: 0;
 		justify-content: center;
 	}
+
+	.instructions a {
+		font-size: 0.9em;
+		font-weight:bold;
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;;
+	padding: 0.3em 0.4em;
+	background: rgba(var(--accent-light), 10%);
+	color: blue;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background 0.3s ease;
+}
+
+.instructions a:hover {
+	background: lightblue;
+}
 </style>
