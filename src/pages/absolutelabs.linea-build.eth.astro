@@ -6,7 +6,7 @@ import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
 
-const cardsData = yaml.load(fs.readFileSync('./src/data/manifest.linea.yaml', 'utf8'));
+const cardsData = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
 const accounts = yaml.load(fs.readFileSync('./src/data/accounts.yaml', 'utf8'));
 
 // Get the filename from the page itself
