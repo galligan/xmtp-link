@@ -22,6 +22,27 @@ function getAddress() {
   return account ? account.address : '';
 }
 
+function getLens() {
+	const account = accounts.find(account => account.identifier === identifier);
+	return account && account.lens ? account.lens : '';
+}
+
+function getCardUrl(card) {
+	let path;
+	switch (card.target) {
+		case 'address':
+			path = getAddress(identifier);
+			break;
+		case 'lens':
+			path = getLens()
+			break;
+		default:
+			path = identifier
+	}
+
+	return `${card.href}${path}`
+}
+
 // Define your preferred order
 const preferredOrder = [];
 
@@ -62,7 +83,7 @@ const cards = cardsData.sort((a, b) => {
 		<ul role="list" class="link-card-grid">
 			{cards.map(card => (
 				<Card
-					href={`${card.href}${card.target === 'address' ? getAddress(identifier) : identifier}`}
+					href={getCardUrl(card)}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}

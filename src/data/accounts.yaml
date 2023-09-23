@@ -1,4 +1,5 @@
 - address: "0xf0490b45884803924Ca84C2051ef435991D7350D"
   identifier: "cryptocornerstore.eth"
+  lens: "@cryptocornerstore"
 - address: "0xce48c388336225cD9837e7dE69be59dF4370514A"
   identifier: "absolutelabs.linea-build.eth"
