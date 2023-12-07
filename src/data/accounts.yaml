@@ -3,3 +3,5 @@
   lens: "@cryptocornerstore"
 - address: "0xce48c388336225cD9837e7dE69be59dF4370514A"
   identifier: "absolutelabs.linea-build.eth"
+- address: "0x15633a0799b44745e00542D90BBADAfF4E9B85E7"
+  identifier: "poap-test.eth"
