@@ -6,12 +6,13 @@ interface Props {
 	href: string;
 	icon: string;
 	iconAlt: string;
+  borderColor?: string;
 }
 
-const { href, title, icon, iconAlt } = Astro.props;
+const { href, title, icon, iconAlt, borderColor } = Astro.props;
 ---
 
-<li class="link-card">
+<li class="link-card" style={`border-color: ${borderColor || '#FFFFFF'};`}>
 	<a href={href} class="card-content">
 		<Image
 		  src={icon}
@@ -25,6 +26,7 @@ const { href, title, icon, iconAlt } = Astro.props;
 		</h2>
 	</a>
 </li>
+
 <style>
 	.link-card {
 		height:62px;
