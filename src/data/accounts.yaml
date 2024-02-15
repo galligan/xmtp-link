@@ -5,3 +5,5 @@
   identifier: "absolutelabs.linea-build.eth"
 - address: "0x15633a0799b44745e00542D90BBADAfF4E9B85E7"
   identifier: "poap-test.eth"
+- address: "0x844228a14031b03A3AA92c154358CF7668E9A680"
+  identifier: "thegeneralstore.eth"
