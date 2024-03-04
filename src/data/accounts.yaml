@@ -1,5 +1,7 @@
 - address: "0xf0490b45884803924Ca84C2051ef435991D7350D"
   identifier: "cryptocornerstore.eth"
+- address: "0xD3F8E00764a910002e6b31D490222e7e33CDAdFa"
+  identifier: "xmtpoffsite.eth"
 - address: "0x96561C772533d32DA71D240820A2fbF6883CF96A"
   identifier: "thegeneralstore.eth"
   lens: "@cryptocornerstore"
