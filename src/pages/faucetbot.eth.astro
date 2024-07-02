@@ -39,7 +39,7 @@ function getCardUrl(card) {
 		default:
 			path = identifier
 	}
-
+	console.log('entra')
 	return `${card.href}${path}`
 }
 
@@ -81,19 +81,30 @@ const cards = cardsData.sort((a, b) => {
 			We're kicking it off in style...through XMTP messaging. Just send a message to <code>xmtpoffsite.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox below.<br />
 		</p>
 		<ul role="list" class="link-card-grid">
-			{cards.map(card => (
-			
-				<Card
-					href={getCardUrl(card)}
-					title={`Message with ${card.name}`}
-					icon={`images/${card.icon}`}
-					iconAlt={card.name}
+			<Card
+					href={"https://go.cb-w.com/messaging?address=0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					title={`Message with Coinbase Messaging`}
+					icon={`images/coinbase.svg`}
+					iconAlt={"Coinbase Messaging"}
 				/>
-	
-			))}
+				<Card
+					href={"https://converse.xyz/dm/0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					title={`Message with Converse`}
+					icon={`images/converse.svg`}
+					iconAlt={"Converse"}
+				/>
+				<Card
+					href={"https://app.converse.xyz/dm/0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					title={`Message with Converse Web`}
+					icon={`images/converse.svg`}
+					iconAlt={"Converse Web"}
+				/>
 		</ul>
 	</main>
 </Layout>
+
+
+
 
 <style>
 
