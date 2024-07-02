@@ -1,62 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { Image } from 'astro:assets';
-import cards from '../data/manifest.yaml';
-import yaml from 'js-yaml';
-import fs from 'fs';
-import path from 'path';
 
-const cardsData = yaml.load(fs.readFileSync('./src/data/manifest.yaml', 'utf8'));
-const accounts = yaml.load(fs.readFileSync('./src/data/accounts.yaml', 'utf8'));
-
-// Get the filename from the page itself
-const filename = path.basename(import.meta.url);
-// Pull out the name before .astro
-const identifier = filename.split('.astro')[0];
-
-function getAddress() {
-  console.log('Getting address for identifier:', identifier);
-  const account = accounts.find(account => account.identifier === identifier);
-  console.log('Found account:', account);
-  return account ? account.address : '';
-}
-
-function getLens() {
-	const account = accounts.find(account => account.identifier === identifier);
-	return account && account.lens ? account.lens : '';
-}
-
-function getCardUrl(card) {
-	let path;
-	switch (card.target) {
-		case 'address':
-			path = getAddress(identifier);
-			break;
-		case 'lens':
-			path = getLens()
-			break;
-		default:
-			path = identifier
-	}
-	console.log('entra')
-	return `${card.href}${path}`
-}
-
-// Define your preferred order
-const preferredOrder = [];
-
-// Sort cards array
-const cards = cardsData.sort((a, b) => {
-  const indexA = preferredOrder.indexOf(a.name);
-  const indexB = preferredOrder.indexOf(b.name);
-
-  if (indexA === -1 && indexB === -1) return 0; // Neither name is in the preferred order
-  if (indexA === -1) return 1; // Only b.name is in the preferred order
-  if (indexB === -1) return -1; // Only a.name is in the preferred order
-
-  return indexA - indexB; // Both names are in the preferred order
-});
 ---
 
 <Layout title="Message xmtpoffsite.eth on XMTP">
@@ -65,8 +10,8 @@ const cards = cardsData.sort((a, b) => {
 	</head>
 	<!-- <div class="bg-nyc"></div> -->
 	<main>
-		<h1 style="display: none;">xmtpoffsite.eth</h1>
-		<h2 class="header">XMTP Q1 Offsite in Palm Springs <span class="hide-on-mobile"><br /></span>powered by 
+		<h1 style="display: none;">faucetbot.eth</h1>
+		<h2 class="header">Your always-on faucet bot <span class="hide-on-mobile"><br /></span>powered by 
 			<object type="image/svg+xml" data="/images/xmtp-logomark.svg" class="xmtp-logo">
 			<!-- Fallback content -->
 			<span class="xmtp-title">XMTP</span>
@@ -78,23 +23,23 @@ const cards = cardsData.sort((a, b) => {
 			</object>
 		</h2>
 		<p class="instructions">
-			We're kicking it off in style...through XMTP messaging. Just send a message to <code>xmtpoffsite.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox below.<br />
+			Ordering is easy! Just send a message to <code>faucetbot.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox below.<br />
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-					href={"https://go.cb-w.com/messaging?address=0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					href={"https://go.cb-w.com/messaging?address=0xF95c7338E1D1fFf270AE0b483b26c245aBCf2016"}
 					title={`Message with Coinbase Messaging`}
 					icon={`images/icon-cbw.svg`}
 					iconAlt={"Coinbase Messaging"}
 				/>
 				<Card
-					href={"https://converse.xyz/dm/0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					href={"https://converse.xyz/dm/0xF95c7338E1D1fFf270AE0b483b26c245aBCf2016"}
 					title={`Message with Converse`}
 					icon={`images/icon-converse.webp`}
 					iconAlt={"Converse"}
 				/>
 				<Card
-					href={"https://app.converse.xyz/dm/0xF95c7338E1D1fF270AE0b483b26c245aBCf2016"}
+					href={"https://app.converse.xyz/dm/0xF95c7338E1D1fFf270AE0b483b26c245aBCf2016"}
 					title={`Message with Converse Web`}
 					icon={`images/icon-converse.webp`}
 					iconAlt={"Converse Web"}
