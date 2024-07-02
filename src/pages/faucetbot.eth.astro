@@ -30,16 +30,17 @@ function getCardUrl(card) {
 	let path;
 	switch (card.target) {
 		case 'address':
-			path = getAddress(identifier);
+			path = getAddress(card.identifier);
 			break;
 		case 'lens':
 			path = getLens()
 			break;
 		default:
-			path = identifier
+			path = card.identifier
 	}
-
-	return `${card.href}${path}`
+	const url = card.href + path
+	console.log("url",url)
+	return url
 }
 
 // Define your preferred order
@@ -80,13 +81,15 @@ const cards = cardsData.sort((a, b) => {
 			Ordering is easy! Just send a message to <code>faucetbot.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
 		</p>
 		<ul role="list" class="link-card-grid">
-			{cards.map(card => (
+			{cards.map( (card) => (
+				
 				<Card
 					href={getCardUrl(card)}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}
 				/>
+				
 			))}
 		</ul>
 	</main>

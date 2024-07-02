@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { href, title, icon, iconAlt, borderColor } = Astro.props;
+console.log(href)
 ---
 
 <li class="link-card" style={`border-color: ${borderColor || '#FFFFFF'};`}>
