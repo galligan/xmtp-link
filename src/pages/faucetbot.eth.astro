@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
 import cards from '../data/manifest.yaml';
 import yaml from 'js-yaml';
 import fs from 'fs';
@@ -30,17 +31,16 @@ function getCardUrl(card) {
 	let path;
 	switch (card.target) {
 		case 'address':
-			path = getAddress(card.identifier);
+			path = getAddress(identifier);
 			break;
 		case 'lens':
 			path = getLens()
 			break;
 		default:
-			path = card.identifier
+			path = identifier
 	}
-	const url = card.href + path
-	console.log("url",url)
-	return url
+
+	return `${card.href}${path}`
 }
 
 // Define your preferred order
@@ -59,14 +59,14 @@ const cards = cardsData.sort((a, b) => {
 });
 ---
 
-<Layout title="Message cryptocornerstore.eth on XMTP">
+<Layout title="Message xmtpoffsite.eth on XMTP">
 	<head>
-		<meta name="description" content="Send a message to cryptocornerstore.eth on XMTP via Coinbase Wallet, Converse, and more.">
+		<meta name="description" content="Send a message to xmtpoffsite.eth on XMTP via Coinbase Wallet, Converse, and more.">
 	</head>
 	<!-- <div class="bg-nyc"></div> -->
 	<main>
-		<h1 style="display: none;">faucetbot.eth</h1>
-		<h2 class="header">Your always-on faucet bot, <span class="hide-on-mobile"><br /></span>powered by 
+		<h1 style="display: none;">xmtpoffsite.eth</h1>
+		<h2 class="header">XMTP Q1 Offsite in Palm Springs <span class="hide-on-mobile"><br /></span>powered by 
 			<object type="image/svg+xml" data="/images/xmtp-logomark.svg" class="xmtp-logo">
 			<!-- Fallback content -->
 			<span class="xmtp-title">XMTP</span>
@@ -78,19 +78,18 @@ const cards = cardsData.sort((a, b) => {
 			</object>
 		</h2>
 		<p class="instructions">
-			Ordering is easy! Just send a message to <code>faucetbot.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
+			We're kicking it off in style...through XMTP messaging. Just send a message to <code>xmtpoffsite.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox below.<br />
 		</p>
 		<ul role="list" class="link-card-grid">
-			{cards.map( (card) => (
-				<>
-				{getCardUrl(card)}
+			{cards.map(card => (
+			
 				<Card
 					href={getCardUrl(card)}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}
 				/>
-				</>
+	
 			))}
 		</ul>
 	</main>
@@ -121,7 +120,7 @@ const cards = cardsData.sort((a, b) => {
 	main {
 		margin: 0 auto;
 		padding: 1rem;
-		width: 800px;
+		width: 900px;
 		max-width: calc(100% - 2rem);
 		color: black;
 		font-size: 20px;
