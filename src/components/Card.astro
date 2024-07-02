@@ -10,13 +10,14 @@ interface Props {
 }
 
 const { href, title, icon, iconAlt, borderColor } = Astro.props;
+console.log(Astro.props)
 ---
 
 <li class="link-card" style={`border-color: ${borderColor || '#FFFFFF'};`}>
 	<a href={href} class="card-content">
-		<Image
-		  src={icon}
-			alt={iconAlt}
+		<Image  
+		src={`/${icon}`}
+		alt={iconAlt}
 			class="card-icon"
 			width="24"
 			height="24"
