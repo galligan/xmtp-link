@@ -82,14 +82,15 @@ const cards = cardsData.sort((a, b) => {
 		</p>
 		<ul role="list" class="link-card-grid">
 			{cards.map( (card) => (
-				
+				<>
+				{getCardUrl(card)}
 				<Card
 					href={getCardUrl(card)}
 					title={`Message with ${card.name}`}
 					icon={`images/${card.icon}`}
 					iconAlt={card.name}
 				/>
-				
+				</>
 			))}
 		</ul>
 	</main>
