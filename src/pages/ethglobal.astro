@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+---
+
+<Layout title="Message xmtpoffsite.eth on XMTP">
+	<head>
+		<meta name="description" content="Send a message to xmtpoffsite.eth on XMTP via Coinbase Wallet, Converse, and more.">
+	</head>
+	<!-- <div class="bg-nyc"></div> -->
+	<main>
+		<h1 style="display: none;">faucetbot.eth</h1>
+		<h2 class="header">RSVP your spot to Vitalik: An Ethereum Story Sunday Oct 20th, 8PM at the Marina Theater.</h2>
+		<p class="instructions">
+			Just send a 'GM' message to  <code>hi.xmtp.eth</code> <span class="hide-on-mobile"><br /></span> using your preferred XMTP inbox below.<br />
+		</p>
+		<ul role="list" class="link-card-grid">
+			<Card
+					href={"https://go.cb-w.com/messaging?address=0x194c31cAe1418D5256E8c58e0d08Aee1046C6Ed0"}
+					title={`Message with Coinbase Wallet`}
+					icon={`images/icon-cbw.svg`}
+					iconAlt={"Coinbase Messaging"}
+				/>
+				<Card
+					href={"https://converse.xyz/dm/0x194c31cAe1418D5256E8c58e0d08Aee1046C6Ed0"}
+					title={`Message with Converse`}
+					icon={`images/icon-converse.webp`}
+					iconAlt={"Converse"}
+				/>
+				<Card
+					href={"https://app.converse.xyz/dm/0x194c31cAe1418D5256E8c58e0d08Aee1046C6Ed0"}
+					title={`Message with Converse Web`}
+					icon={`images/icon-converse.webp`}
+					iconAlt={"Converse Web"}
+				/>
+		</ul>
+	</main>
+</Layout>
+
+
+
+
+<style>
+
+	@media (max-width: 767px) {
+			.hide-on-mobile {
+				display: none;
+			}
+		}
+	
+
+	.bg-nyc {
+		background-image: url('/images/bg-ny.png');
+		background-position: bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		min-height: 400px; /* Set the minimum height */
+		z-index: -1;
+	}
+
+	main {
+		margin: 0 auto;
+		padding: 1rem;
+		width: 900px;
+		max-width: calc(100% - 2rem);
+		color: black;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	h2.header {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1em;
+		text-align: center;
+		margin-bottom: 1em;
+		margin-top: 32px;
+		@media (min-width: 1024px) {
+			margin-top: 72px;
+		}
+	}
+	.xmtp-logo {
+		height:3rem;
+		vertical-align: -0.17em;
+	}
+
+	.ens-logo {
+		height:3rem;
+		vertical-align: -0.17em;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		text-align:center;
+	}
+
+	.instructions code {
+		font-size: 0.9em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 10%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: 372px;
+		margin:0 auto;
+		gap: 1rem;
+		padding: 0;
+		justify-content: center;
+	}
+</style>
