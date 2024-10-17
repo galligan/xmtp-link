@@ -66,31 +66,30 @@ const cards = cardsData.sort((a, b) => {
 	<!-- <div class="bg-nyc"></div> -->
 	<main>
 		<h1 style="display: none;">thegeneralstore.eth</h1>
-		<h2 class="header">Your general store for web3 builders, <span class="hide-on-mobile"><br /></span>powered by 
-			<object type="image/svg+xml" data="/images/xmtp-logomark.svg" class="xmtp-logo">
-			<!-- Fallback content -->
-			<span class="xmtp-title">XMTP</span>
-			</object>
-			and
-			<object type="image/svg+xml" data="/images/ens-logo.svg" class="ens-logo">
-			<!-- Fallback content -->
-			<span class="ens-title">ENS</span>
-			</object>
-		</h2>
+		<h2 class="header">Get your goods from the<br />ETHGlobal SF Corner Store</h2>
+	
 		<p class="instructions">
-			Ordering is easy! Just send a message to <code>thegeneralstore.eth</code> <span class="hide-on-mobile"><br /></span>using your preferred XMTP inbox, tell us which item(s) you want, and hit send!<br />
+			Just send a 'GM' message to  <code>thegeneralstore.eth</code> <span class="hide-on-mobile"><br /></span> using your preferred XMTP inbox below and let the bot know what you want!<br />
 		</p>
 		<ul role="list" class="link-card-grid">
-			{cards.map(card => (
-			
-				<Card
-					href={getCardUrl(card)}
-					title={`Message with ${card.name}`}
-					icon={`images/${card.icon}`}
-					iconAlt={card.name}
+			<Card
+					href={"https://go.cb-w.com/messaging?address=0x4052159E56CE88a9fAf1c655a15649eFB5EEe14f"}
+					title={`Message with Coinbase Wallet`}
+					icon={`images/icon-cbw.svg`}
+					iconAlt={"Coinbase Messaging"}
 				/>
-	
-			))}
+				<Card
+					href={"https://converse.xyz/dm/0x4052159E56CE88a9fAf1c655a15649eFB5EEe14f"}
+					title={`Message with Converse`}
+					icon={`images/icon-converse.webp`}
+					iconAlt={"Converse"}
+				/>
+				<Card
+					href={"https://app.converse.xyz/dm/0x4052159E56CE88a9fAf1c655a15649eFB5EEe14f"}
+					title={`Message with Converse Web`}
+					icon={`images/icon-converse.webp`}
+					iconAlt={"Converse Web"}
+			/>
 		</ul>
 	</main>
 </Layout>
